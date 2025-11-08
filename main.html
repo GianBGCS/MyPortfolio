@@ -1,0 +1,157 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { FaGithub, FaLinkedin, FaEnvelope, FaPhone } from 'react-icons/fa';
+
+export default function Portfolio() {
+  return (
+    <div className="bg-[#0a0a0f] text-white font-poppins overflow-x-hidden scroll-smooth">
+      {/* Navbar */}
+      <nav className="fixed top-0 left-0 w-full z-50 bg-[#0a0a0f]/80 backdrop-blur-md border-b border-blue-500/20 flex justify-between items-center px-8 py-4">
+        <h1 className="text-neon-blue text-2xl font-orbitron">Gian Carlo R. Bigcas</h1>
+        <div className="space-x-6 hidden md:flex">
+          {['Home','About','Resume','Projects','Skills','Achievements','Contact'].map((item) => (
+            <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-neon-blue transition-all duration-300">{item}</a>
+          ))}
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section id="home" className="min-h-screen flex flex-col justify-center items-center text-center bg-gradient-to-b from-[#0a0a0f] to-[#050509] relative">
+        <motion.h2 initial={{opacity:0, y:30}} whileInView={{opacity:1, y:0}} className="text-4xl md:text-6xl font-orbitron text-neon-blue mb-4">Future Robotics Engineer</motion.h2>
+        <motion.p initial={{opacity:0, y:30}} whileInView={{opacity:1, y:0}} transition={{delay:0.2}} className="max-w-xl text-gray-300 mb-6">
+          Hi! I’m <span className="text-white font-semibold">Gian Carlo R. Bigcas</span>, a passionate student working toward becoming a robotics engineer. This site showcases my skills, achievements, and projects that reflect my journey in robotics and technology.
+        </motion.p>
+        <a href="#projects" className="px-6 py-3 border border-neon-blue text-neon-blue rounded-xl hover:bg-neon-blue hover:text-black transition-all duration-300">View My Work</a>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-20 px-6 md:px-20 bg-[#0b0b14]">
+        <h2 className="section-title">About Me</h2>
+        <p className="max-w-3xl mx-auto text-gray-300 text-center">
+          I want to be a successful robotics engineer someday. I’m good at managing my time, and I’m a fast learner who enjoys coding and problem-solving. I believe in combining innovation and teamwork to build technology that helps people.
+        </p>
+        <div className="mt-10 max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+          {[
+            {label:'Name',value:'Gian Carlo R. Bigcas'},
+            {label:'Email',value:'gc.bigcas@gmail.com'},
+            {label:'School',value:'Pamantasan ng Lungsod ng Valenzuela (PLV)'},
+            {label:'Degree',value:'BS Information Technology'},
+            {label:'Year Level',value:'1st Year'},
+          ].map((info) => (
+            <div key={info.label} className="bg-[#111122] p-4 rounded-xl border border-blue-500/20">
+              <p className="text-gray-400">{info.label}</p>
+              <p className="text-white">{info.value}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Resume Section */}
+      <section id="resume" className="py-20 px-6 md:px-20">
+        <h2 className="section-title">Résumé</h2>
+        <div className="max-w-4xl mx-auto space-y-6">
+          <div>
+            <h3 className="text-neon-blue font-semibold mb-2">Career Objective</h3>
+            <p className="text-gray-300">To build a career as a robotics engineer by enhancing my programming, problem-solving, and design abilities through practical projects and teamwork.</p>
+          </div>
+          <div>
+            <h3 className="text-neon-blue font-semibold mb-2">Key Skills</h3>
+            <p className="text-gray-300">Java Programming, Critical Thinking, Problem-Solving, Time Management, Fast Learning, Communication</p>
+          </div>
+          <div>
+            <h3 className="text-neon-blue font-semibold mb-2">Education</h3>
+            <p className="text-gray-300">BSIT – Pamantasan ng Lungsod ng Valenzuela (PLV), 1st Year</p>
+          </div>
+          <div>
+            <h3 className="text-neon-blue font-semibold mb-2">Experience</h3>
+            <p className="text-gray-300">FES Facilitator</p>
+          </div>
+          <div>
+            <h3 className="text-neon-blue font-semibold mb-2">Achievements</h3>
+            <p className="text-gray-300">Consistent with Honor</p>
+          </div>
+          <button className="border border-neon-blue text-neon-blue rounded-xl px-6 py-3 hover:bg-neon-blue hover:text-black transition-all">Download Résumé (PDF)</button>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="py-20 px-6 md:px-20 bg-[#0b0b14]">
+        <h2 className="section-title">Projects</h2>
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {[
+            {title:'Autonomous Line-Following Robot',desc:'A robot that follows a path using sensor logic.'},
+            {title:'Smart Obstacle Detection System',desc:'A safety-focused automation project.'},
+            {title:'Java-Based Simulation Tool',desc:'A software that simulates robotic movement and logic.'}
+          ].map((project) => (
+            <motion.div whileHover={{scale:1.05}} key={project.title} className="p-6 bg-[#111122] border border-blue-500/20 rounded-2xl hover:shadow-[0_0_15px_#00bfff] transition-all">
+              <h3 className="text-neon-blue font-semibold text-lg mb-2">{project.title}</h3>
+              <p className="text-gray-300 mb-4">{project.desc}</p>
+              <button className="border border-neon-blue text-neon-blue px-4 py-2 rounded-xl hover:bg-neon-blue hover:text-black transition-all">View Project</button>
+            </motion.div>
+          ))}
+        </div>
+        <p className="text-sm text-gray-500 text-center mt-8">⚠️ Disclaimer: The listed projects are conceptual examples created for portfolio demonstration purposes.</p>
+      </section>
+
+      {/* Skills Section */}
+      <section id="skills" className="py-20 px-6 md:px-20">
+        <h2 className="section-title">Skills</h2>
+        <div className="max-w-3xl mx-auto space-y-4">
+          {['Java Programming','Communication','Problem Solving','Time Management','Teamwork'].map((skill,i)=>(
+            <div key={skill}>
+              <p className="text-gray-300 mb-1">{skill}</p>
+              <div className="w-full bg-[#111122] h-3 rounded-full overflow-hidden">
+                <motion.div initial={{width:0}} whileInView={{width:`${80 - i*10}%`}} transition={{duration:1}} className="h-full bg-neon-blue"></motion.div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Achievements */}
+      <section id="achievements" className="py-20 px-6 md:px-20 bg-[#0b0b14]">
+        <h2 className="section-title">Achievements</h2>
+        <div className="flex flex-wrap justify-center gap-6">
+          <div className="p-6 border border-blue-500/20 rounded-xl bg-[#111122] hover:shadow-[0_0_15px_#00bfff] transition-all">Consistent with Honor</div>
+          <div className="p-6 border border-blue-500/20 rounded-xl bg-[#111122] text-gray-500">Future Awards & Certifications</div>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section id="contact" className="py-20 px-6 md:px-20">
+        <h2 className="section-title">Contact</h2>
+        <form className="max-w-2xl mx-auto flex flex-col gap-4">
+          <input type="text" placeholder="Name" className="input" />
+          <input type="email" placeholder="Email" className="input" />
+          <textarea placeholder="Message" rows="4" className="input"></textarea>
+          <button type="submit" className="border border-neon-blue text-neon-blue px-6 py-3 rounded-xl hover:bg-neon-blue hover:text-black transition-all">Send Message</button>
+        </form>
+        <div className="text-center mt-6 space-y-2">
+          <p>📧 gc.bigcas@gmail.com</p>
+          <p>📱 09279567052</p>
+          <div className="flex justify-center space-x-6 mt-4 text-neon-blue text-2xl">
+            <a href="https://github.com/GianBGCS" target="_blank"><FaGithub/></a>
+            <a href="https://www.linkedin.com/in/gian-carlo-bigcas-5a6892390" target="_blank"><FaLinkedin/></a>
+            <a href="mailto:gc.bigcas@gmail.com"><FaEnvelope/></a>
+            <a href="tel:09279567052"><FaPhone/></a>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="text-center py-6 border-t border-blue-500/20 text-gray-400">
+        © 2025 Gian Carlo R. Bigcas | Robotics Portfolio
+      </footer>
+
+      <style jsx>{`
+        .text-neon-blue { color: #00bfff; }
+        .border-neon-blue { border-color: #00bfff; }
+        .bg-neon-blue { background-color: #00bfff; }
+        .section-title { font-family: 'Orbitron', sans-serif; font-size: 2rem; text-align: center; margin-bottom: 1.5rem; color: #00bfff; }
+        .input { background: #111122; border: 1px solid rgba(0,191,255,0.3); padding: 0.75rem 1rem; border-radius: 0.5rem; color: white; outline: none; transition: 0.3s; }
+        .input:focus { border-color: #00bfff; box-shadow: 0 0 10px #00bfff; }
+      `}</style>
+    </div>
+  );
+}
+      
