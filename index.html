@@ -220,6 +220,20 @@ I  <meta name="viewport" content="width=device-width, initial-scale=1" />
   color: black;
 }
 
+    /* View Photo button variation */
+.btn-photo {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.btn-photo:hover {
+  color: #fff;
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.25),
+              0 0 30px rgba(255, 255, 255, 0.15);
+  transform: translateY(-4px);
+}
+    
+
 /* --- Mobile view: show only one photo --- */
 @media (max-width: 768px) {
   .photo-container {
@@ -354,7 +368,8 @@ I  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <a class="btn" href="files/recommendation-request.pdf" download>Letter of Recommendation Request</a>
   <a class="btn" href="files/application-letter.pdf" download>Letter of Application</a>
             <a class="btn" href="files/recco-letter.pdf" download>Recommendation Letter</a>
-            <button class="btn" onclick="openGallery()">View LinkedIn Profile</button>
+            <a class="btn btn-photo" id="viewPhotosBtn">View LinkedIn Profile</a>
+          
             
 </div>
 
